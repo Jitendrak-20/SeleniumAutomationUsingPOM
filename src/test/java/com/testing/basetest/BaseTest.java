@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import com.testing.base.BasePage;
 import com.testing.pages.RegistrationPage;
 import com.testing.pages.SignInPage;
+import com.testing.pages.HomePage;
 
 public class BaseTest {
 	
@@ -14,11 +15,14 @@ public class BaseTest {
 	public WebDriver driver;
 	public RegistrationPage registrationPage;
 	public SignInPage signInPage;
+	public HomePage homePage;
+	
 	@BeforeMethod
 	public void baseSetup() {
 		
+		
 		basePage = new BasePage();
-		basePage.getDriver("chrome");
+		driver = basePage.getDriver("chrome");
 		driver.get("url of the App");
 		
 		

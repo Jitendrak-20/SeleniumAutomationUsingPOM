@@ -1,5 +1,14 @@
 package com.testing.pages;
 
-public class RegistrationPage {
+import org.testng.annotations.BeforeMethod;
+
+import com.testing.base.BasePage;
+
+public class RegistrationPage extends BasePage {
+	
+	
+	
+	
+	
 
 }
