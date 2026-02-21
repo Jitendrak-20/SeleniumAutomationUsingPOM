@@ -9,42 +9,33 @@ import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 
-public class LoginTest extends TestBase{
+public class HomePageTest extends TestBase {
+	
 	LoginPage loginPage;
 	HomePage homePage;
 	
-	public LoginTest(){
+	public HomePageTest(){
 		super();
 	}
 	
 	@BeforeMethod
 	public void setUp(){
 		initialization();
-		loginPage = new LoginPage();	
-	}
-	
-	@Test(priority=1)
-	public void loginPageTitleTest(){
-		String title = loginPage.validateLoginPageTitle();
-		Assert.assertEquals(title, "Account Login"); 
-	}
-	
-	@Test(priority=2)
-	public void logoImageTest(){
-		boolean flag = loginPage.websiteLogo();
-		Assert.assertTrue(flag);
-	}
-	
-	@Test(priority=3)
-	public void loginTest(){
+		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		
 	}
 	
-	
+	@Test
+	public void homePageTitleTest() {
+		String title = homePage.validateHomePageTitle();
+		Assert.assertEquals(title, "My Account","Home Page title not matched");
+	}
 	
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
+	
 
 }
