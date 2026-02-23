@@ -28,6 +28,10 @@ public class HomePage extends TestBase{
 			return driver.getTitle(); 
 			}  
 		
+		public boolean verifyCorrectUserName() {
+			return LoggedInUserName.isDisplayed();
+		}
+		
 		public ContactUsPage clickOnContactLink() {
 			ContactUsLink.click();
 			return new ContactUsPage();
