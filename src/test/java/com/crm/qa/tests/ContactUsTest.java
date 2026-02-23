@@ -9,45 +9,44 @@ import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ContactUsPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
+import com.crm.qa.util.TestUtil;
 
-public class HomePageTest extends TestBase {
-	
+public class ContactUsTest extends TestBase {
 	LoginPage loginPage;
 	HomePage homePage;
 	ContactUsPage contactUsPage;
-	public HomePageTest(){
+	TestUtil testUtil;
+	
+	public ContactUsTest(){
 		super();
 	}
 	
 	@BeforeMethod
 	public void setUp(){
 		initialization();
+		testUtil = new TestUtil();
+		contactUsPage = new ContactUsPage();
 		loginPage = new LoginPage();
 		homePage = loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		
+		contactUsPage.contactUsPageElement();
 	}
 	
 	@Test(priority =1)
-	public void homePageTitleTest() {
-		String title = homePage.validateHomePageTitle();
-		Assert.assertEquals(title, "My Account","Home Page title not matched");
+	public void contactUsLabelTest() {
+//		contactUsPage.VerifyConatactUsLabel();
+		
+		Assert.assertTrue(contactUsPage.VerifyConatactUsLabel());
 	}
 	
 	@Test(priority =2)
-	public void verifyCorrectUserNameTest() {
-		boolean user = homePage.verifyCorrectUserName();
-		Assert.assertTrue(user,"Not a valid user");
-	}
-	
-	@Test(priority=3)
-	public void verifyContactPageTest() {
-		contactUsPage = homePage.clickOnContactLink();
+	public void contactUsNumberTest() {
+		Assert.assertTrue(contactUsPage.VerifyConatactUsLabel());
 	}
 	
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-	
+
 
 }
