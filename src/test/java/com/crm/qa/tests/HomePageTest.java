@@ -36,7 +36,7 @@ public class HomePageTest extends TestBase {
 	@Test(priority =2)
 	public void verifyCorrectUserNameTest() {
 		boolean user = homePage.verifyCorrectUserName();
-		Assert.assertTrue(user,"Not a valid user");
+		Assert.assertTrue(user,prop.getProperty("homePageUserName"));
 	}
 	
 	@Test(priority=3)
