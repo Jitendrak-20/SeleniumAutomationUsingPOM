@@ -15,4 +15,5 @@ test-output/
 # OS
 .DS_Store
 Thumbs.db
-config.properties
+
+src/main/java/com/crm/qa/config/config.properties
